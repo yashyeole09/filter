@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google-Meet</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #search {
+            padding: 10px;
+            font-size: 16px;
+            width: 350px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+        }
+        .student-card {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid blue;
+            border-radius: 5px;
+            
+        }
+        @media screen {
+            #students-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-gap: 10px;
+            }
+            @media (max-width: 600px) {
+                #students-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            
+        }
+
+
+      
+    </style>
+</head>
+<body>
+    <input  type="text" placeholder="search" id="search" onkeyup="getStudent()" />
+
+    <div id="students-container"></div>
+
+    <script>
+        const students = [
+            "Yash",
+            "Prakash",
+            "Rahul",
+            "Ramesh",
+            "Suresh",
+            "Ramesh",
+            "Shreya",
+            "Nilesh",
+            "Mahesh",
+            "Riya",
+            "Priya", 
+            "Priyanka",
+            "Sunil",
+            "Anil",
+            "Kiran",
+            "Sudhir",
+            "Gaurav",
+            "Ganesh",
+            "Shiv",
+            "Rajesh",
+            "Rajiv",
+            "Rajat",
+            "Rajan",
+            "Rajendra",
+            "Sanvi",
+            "Sakshi",
+            "Sachin",
+            "Sadaf",
+            "Pratik",
+            "Pooja",
+            "Priyam",
+            "Preeti",
+            "Prakash",
+            "Priyanka",
+            "Tushar",
+            "Teja",
+            "Tanya",
+            "Tanuja",
+            "Tanya",
+            "Tanya",
+            "Siddhart",
+            "Siddhant",
+            "Kartik",
+            "Kamal",
+            "Kavita",
+            "Sarika",
+            "Savita",
+            "Alok",
+            "Shlok",
+            "Girija",
+            "Gauri",
+            "Prasad",
+            "Prasanna",
+            "Paras",
+            "Nisha",
+            "Nandan",
+            "Manoj",
+            "Mukesh",
+            "Mahendra",
+            "Madan",
+            "Mahesh",
+            "Maharaj",
+            "Pankaj",
+            "Nikhil",
+            "Nandan",
+            "Namrata",
+            "Mudit",
+            "Manoj",
+            "Mukesh",
+            "Maharaj",
+            "Laxmi",
+            "Lakshmi",
+            "Kiran",
+            "Karthik",
+            "Kamal",
+            "Kavita",
+            "Sarika",
+            
+        ]
+
+        const studentsContainer = document.getElementById('students-container')
+        students.forEach(stud =>{
+            studentsContainer.innerHTML += `<div class='student-card'>${stud}</div>`
+        })
+        
+
+        function getStudent(){
+            const inputElement  = document.getElementById('search');
+            const searchText = inputElement.value.toLowerCase();
+            studentsContainer.innerHTML = '';   
+
+            const filteredStudent = students.filter((stud)=>{
+                if(stud .toLowerCase().includes(searchText)){
+                    return true;
+                }
+            })
+
+            filteredStudent.forEach(stud=>{
+                studentsContainer.innerHTML += `<div class='student-card'>${stud}</div>`
+            })
+        }
+        </script>
+</body>
+
+
+</html>
